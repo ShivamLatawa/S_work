@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Animate</title>
+	<style>
+		.image{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #efefef;
+		}
+
+		img:hover{
+			animation: 0.7s customRotate;
+		}
+
+		@-webkit-keyframes customRotate{
+			from{
+				transform: rotate(0deg);
+			}
+
+			to{
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="container">
+		<div class="image">
+			<img src="images/img1.svg" alt="">
+		</div>
+		<div class="image">
+			<img src="images/img2.svg" alt="">
+		</div>
+	</div>
+</body>
+</html>

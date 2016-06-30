@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jqEx</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <table class="table-striped">
+        <thead></thead>
+        <tbody class="tbody">
+            <tr>
+                <th>Id</th>
+                <th>Gender</th>
+                <th>First name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Ip Address</th>
+                <th>Child Elements</th>
+            </tr>
+
+            <script id="rowElement" type="text/x-handlebars-template">
+                {{#each this}}
+                    <tr>
+                        <td>{{this.id}}</td>
+                        <td>{{this.gender}}</td>
+                        <td>{{this.first_name}}</td>
+                        <td>{{this.last_name}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.ip_address}}</td>
+                        <td>
+                            {{#if this.children}}
+                                <div class="subElementsToAppend">
+                                    <div>{{this.children.id}}</div>
+                                    <div>{{this.children.currency}}</div>
+                                    <div>{{this.children.company}}</div>
+                                    <div>{{this.children.country}}</div>
+                                    {{#if this.children.children}}
+                                        <div class="subElementsToAppend2">
+                                            <div>{{this.children.children.id}}</div>
+                                            <div>{{this.children.children.color}}</div>
+                                            <div>{{this.children.children.password}}</div>
+                                            <div>{{this.children.children.name}}</div>
+                                        </div>
+                                    {{/if}}
+                                </div>
+                            {{/if}}
+                        </td>
+                    </tr>
+                {{/each}}
+            </script>
+        </tbody>
+    </table>
+    <script data-main="js/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.js"></script>
+    <script src="js/requireConfig.js"></script>
+</body>
+
+</html>

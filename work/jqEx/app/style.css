@@ -1,0 +1,16 @@
+.table-striped {
+  border: 1px solid black;
+}
+.table-striped tr:nth-child(odd) {
+  background-color: #abc;
+}
+.table-striped .subElementsToAppend {
+  background-color: #def;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.table-striped .subElementsToAppend2 {
+  background-color: #bcd;
+  border: 1px solid black;
+  border-radius: 5px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>angular 1.5</title>
+</head>
+
+<body ng-app="app" ng-controller="AppController">
+    <div ng-viewport>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+    <script src="node_modules/angular-new-router/dist/router.es5.js"></script>
+    <script src="components/home/home.js"></script>
+    <script>
+    var app = angular.module('app', ['ngNewRouter', 'app.home']);
+
+    app.controller('AppController', ['$router', AppController]);
+
+    function AppController($router) {
+        $router.config([{
+            path: '/',
+            redirectTo: '/home'
+        }, {
+            path: '/home',
+            component: 'home'
+        }])
+    }
+    app.directive('counter', function() {
+        return {
+            restrict: 'AE',
+            transclude: true,
+            controller: function() {
+                this.count = 0;
+
+                this.increment = function() {
+                    this.count++;
+                };
+
+                this.decrement = function() {
+                    this.count--;
+                }
+            },
+            controllerAs: 'counter',
+
+            template: [
+                '<div class="todo">',
+                '<input type="text" ng-model="counter.count">',
+                '<button type="button" ng-click="counter.decrement();">-</button>',
+                '<button type="button" ng-click="counter.increment();">+</button>',
+                '</div>'
+            ].join('')
+        }
+    });
+
+    app.component('counterComponent', {
+
+    })
+
+    </script>
+</body>
+
+</html>
